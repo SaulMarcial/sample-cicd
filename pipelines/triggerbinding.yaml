@@ -7,7 +7,7 @@ spec:
   - name: revision
     value: $(body.release.tag_name)
   - name: repo-url
-    value:  "body.repository.clone_url"
+    value:  "https://github.com/$(body.repository.full_name)"
 
 
 # apiVersion: triggers.tekton.dev/v1beta1

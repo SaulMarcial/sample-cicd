@@ -7,7 +7,7 @@ spec:
     name: my-pipeline
   params:
   - name: repo-url
-    value: https://github.com/leandronsp/chespirito.git
+    value: https://github.com/SaulMarcial/sample-cicd.git
   - name: revision
     value: main
   workspaces:

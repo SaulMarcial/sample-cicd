@@ -14,6 +14,7 @@ spec:
   - name: source
     description: Este espacio de trabajo es de source    
   tasks:
+  
   - name: fetch-source
     taskRef:
       name: git-clone
@@ -25,10 +26,11 @@ spec:
         value: $(params.repo-url)
       - name: revision
         value: $(params.revision)
+  
   - name: list-source
     runAfter: ["fetch-source"]
     taskRef:
       name: list-source
     workspaces:
-    - name: source
+    - name: list-source
       workspace: source      

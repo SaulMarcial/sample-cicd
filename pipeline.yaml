@@ -32,5 +32,5 @@ spec:
     taskRef:
       name: list-source
     workspaces:
-    - name: list-source
+    - name: list
       workspace: source      

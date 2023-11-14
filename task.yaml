@@ -1,10 +1,13 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: hello-task
+  name: list-source
 spec:
+  workspaces:
+    - name: source
   steps:
-    - name: hello
-      image: ubuntu
-      script: >
-        echo "Hello"
+  - name: ls
+    image: ubuntu
+    workingDir: $(workspaces.source.path)
+    script: >
+      ls

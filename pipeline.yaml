@@ -11,9 +11,7 @@ spec:
   workspaces:
   - name: shared-data
     description: Este espacio de trabajo contiene los archivos de repositorio clonados, por lo que pueden ser leídos por la siguiente tarea.
-  - name: source
-    description: Este espacio de trabajo es de source    
-  tasks:
+  
   - name: fetch-source
     taskRef:
       name: git-clone
@@ -21,16 +19,7 @@ spec:
     - name: output
       workspace: shared-data
     params:
-    - name: url
-      value: $(params.repo-url)
-    - name: revision
-      value: $(params.revision)
-    steps:
-    - name: copy-files
-      image: alpine
-      command: ['sh', '-c', 'cp -r /workspace/shared-data/* /workspace/source/']
-      volumeMounts:
-      - name: shared-data
-        mountPath: /workspace/shared-data
-      - name: source
-        mountPath: /workspace/source
+      - name: url
+        value: $(params.repo-url)
+      - name: revision
+        value: $(params.revision)

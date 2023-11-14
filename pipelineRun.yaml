@@ -19,3 +19,11 @@ spec:
         resources:
           requests:
             storage: 1Gi
+  - name: source  # Asegúrate de incluir este espacio de trabajo
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi

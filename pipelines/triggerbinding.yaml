@@ -5,6 +5,6 @@ metadata:
 spec:
   params:
   - name: revision
-    value: $(body.pull_request.head.sha)
+    value: $(body.release.tag_name)
   - name: repo-url
-    value: $(body.repository.clone_url)
+    value:  "https://github.com/$(body.repository.full_name)"

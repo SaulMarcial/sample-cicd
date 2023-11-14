@@ -3,36 +3,24 @@ kind: Pipeline
 metadata:
   name: my-pipeline
 spec:
-spec:
   params:
-    - name: repo-url
-      type: string
-      description: La URL desde donde se va a clonar
-    - name: image-reference
-      type: string
-  workspaces:
-  - name: shared-data
-    description: Este espacio de trabajo contiene los archivos de repositorio clonados, por lo que pueden ser leídos por la siguiente tarea.
-  - name: nexus-credentials
-    description: Espacio de trabajo de mis credenciales de Docker en Nexus. 
-  - name: git-credentials
-    description: Espacio de trabajo de mis credenciales de Github.
-
+  - name: repo-url
+    type: string
+  - name: revision
+    type: string
   tasks:
-  - name: fetch-source        ##### TASK 1 CLONAR CÓDIGO FUENTE DE GITHUB
+  - name: fetch-source
     taskRef:
       name: git-clone
     workspaces:
     - name: output
       workspace: shared-data
-    - name: ssh-directory
-      workspace: git-credentials
     params:
-    - name: url
-      value: $(params.repo-url)
+      - name: url
+        value: $(params.repo-url)
+      - name: revision
+        value: $(params.revision)
   - name: list-source
     runAfter: ["fetch-source"]
     taskRef:
       name: list-source
-
-

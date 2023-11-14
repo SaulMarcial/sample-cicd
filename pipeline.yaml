@@ -11,6 +11,8 @@ spec:
   workspaces:
   - name: shared-data
     description: Este espacio de trabajo contiene los archivos de repositorio clonados, por lo que pueden ser leídos por la siguiente tarea.
+  - name: source
+    description: Este espacio de trabajo es de source    
   tasks:
   - name: fetch-source
     taskRef:
@@ -27,3 +29,6 @@ spec:
     runAfter: ["fetch-source"]
     taskRef:
       name: list-source
+    workspaces:
+    - name: source
+      workspace: source      

@@ -1,15 +1,3 @@
-apiVersion: triggers.tekton.dev/v1beta1
-kind: TriggerBinding
-metadata:
-  name: github-pr-trigger-binding
-spec:
-  params:
-  - name: revision
-    value: $(body.release.tag_name)
-  - name: repo-url
-    value:  "https://github.com/$(body.repository.full_name)"
-
-
 # apiVersion: triggers.tekton.dev/v1beta1
 # kind: TriggerBinding
 # metadata:
@@ -17,6 +5,17 @@ spec:
 # spec:
 #   params:
 #   - name: revision
-#     value: $(body.pull_request.head.sha)
+#     value: $(body.release.tag_name)
 #   - name: repo-url
-#     value: $(body.repository.clone_url)    
+#     value:  "https://github.com/$(body.repository.full_name)"
+
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerBinding
+metadata:
+  name: github-pr-trigger-binding
+spec:
+  params:
+  - name: revision
+    value: $(body.pull_request.head.sha)
+  - name: repo-url
+    value: $(body.repository.clone_url)    

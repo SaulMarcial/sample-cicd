@@ -11,7 +11,7 @@ spec:
             name: "github"
           params:
             - name: "eventTypes"
-              value: ["release"] # pull_request
+              value: ["pull_request"] # pull_request
         - name: "only when RELEASE is created"
           ref:
             name: "cel"

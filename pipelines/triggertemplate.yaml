@@ -14,7 +14,7 @@ spec:
       generateName: my-pipeline-
     spec:
       pipelineRef:
-        name: my-pipeline
+        name: my-pipeline #comentario
       workspaces:
       - name: shared-data
         volumeClaimTemplate:

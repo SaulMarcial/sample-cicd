@@ -6,6 +6,18 @@ spec:
   serviceAccountName: tekton-triggers-example-sa
   triggers:
     - name: pr-trigger
+      interceptors:
+        - ref:
+            name: "github"
+          params:
+            - name: "eventTypes"
+              value: ["release"] # pull_request
+        - name: "only when RELEASE is created"
+          ref:
+            name: "cel"
+          params:
+            - name: "filter"
+              value: "body.action in ['created']"
       bindings:
         - ref: github-pr-trigger-binding
       template:

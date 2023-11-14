@@ -4,20 +4,23 @@ metadata:
   name: my-pipeline
 spec:
   params:
-  - name: repo-url
-    type: string
-  - name: revision
-    type: string
+    - name: repo-url
+      type: string
+    - name: revision
+      type: string
   tasks:
-  - name: fetch-source
-    taskRef:
-      name: git-clone
-    params:
-      - name: url
-        value: $(params.repo-url)
-      - name: revision
-        value: $(params.revision)
-  - name: list-source
-    runAfter: ["fetch-source"]
-    taskRef:
-      name: list-source
+    - name: fetch-source
+      taskRef:
+        name: git-clone
+      params:
+        - name: url
+          value: $(params.repo-url)
+        - name: revision
+          value: $(params.revision)
+    - name: list-source
+      runAfter: ["fetch-source"]
+      taskRef:
+        name: list-source
+      workspaces:
+        - name: source
+        - name: output

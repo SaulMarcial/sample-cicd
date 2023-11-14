@@ -19,7 +19,7 @@ spec:
     description: Espacio de trabajo de mis credenciales de Github.
 
   tasks:
- - name: fetch-source        ##### TASK 1 CLONAR CÓDIGO FUENTE DE GITHUB
+  - name: fetch-source        ##### TASK 1 CLONAR CÓDIGO FUENTE DE GITHUB
     taskRef:
       name: git-clone
     workspaces:

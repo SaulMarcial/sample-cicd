@@ -11,7 +11,7 @@ spec:
             name: "github"
           params:
             - name: "eventTypes"
-              value: ["pull_request"] # pull_request
+              value: ["pull_request"] # pull_request prueba con un push 
         - name: "only when pull_request is opened"
           ref:
             name: "cel"

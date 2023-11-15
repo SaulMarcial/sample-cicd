@@ -5,7 +5,7 @@ metadata:
 spec:
   serviceAccountName: tekton-triggers-example-sa
   triggers:
-    # - name: pr-trigger
+    - name: pr-trigger
     #   interceptors:
     #     - ref:
     #         name: "github"
